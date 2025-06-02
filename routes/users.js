@@ -1,5 +1,6 @@
 const express = require("express");
-const bcryptjs = require("bcryptjs"); // Use bcrypt for password hashing
+const bcrypt = require("bcryptjs");
+
 const User = require("../models/User");
 
 const router = express.Router();

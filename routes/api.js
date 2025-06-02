@@ -1,5 +1,5 @@
 const express = require("express");
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const QRCode = require("qrcode");
 const PDFDocument = require("pdfkit");

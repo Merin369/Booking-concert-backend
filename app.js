@@ -20,8 +20,11 @@ app.use(express.static("public"));
 // ✅ Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow frontend requests
-    credentials: true, // Allow cookies & sessions
+    origin: [
+      "http://localhost:3000", // local development
+      "https://booking-concerts-frontend.onrender.com" // deployed frontend on Render
+    ],
+    credentials: true,
   })
 );
 
