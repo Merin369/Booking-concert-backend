@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJkXx2GoF3vA6j3vBKh3o5fblCO3zQpcz1byhtl1zvZrSi84T8DJJ4eB4sXx" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-image: url('https://t4.ftcdn.net/jpg/01/42/37/43/240_F_142374371_Q07DF2it0cgxWPydu0MqFebYlDOfySTE.jpg');  /* Replace with your image URL */
+            background-size: cover;  /* Ensures the image covers the entire page */
+            background-position: center center;  /* Centers the background image */
+            background-attachment: fixed;  /* Makes the background image fixed while scrolling */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white background */
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a6aff;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            box-shadow: none;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: #4a6aff;
+            box-shadow: 0 0 10px rgba(74, 106, 255, 0.4);
+        }
+
+        .btn-custom {
+            background-color: #4a6aff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #3b59cc;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4a6aff;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #3b59cc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Admin Login</h1>
+
+        <% if (message) { %>
+            <div class="error-message">
+                <p><%= message %></p>
+            </div>
+        <% } %>
+
+        <form action="/users/admin/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn-custom">Login</button>
+        </form>
+
+        <a href="/users/login" class="back-link">Back to User Login</a>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-Piv4xVNRyMGpqk2eU7S0M2v1Q5LdeGgH9c0b5AIBqfoG2P4yAOSpMTe9xtwV3t3g7" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0pDty5eFLhRnk8qS17h7xn1JtIbgF6i4L0QkcEftb00mGxhp" crossorigin="anonymous"></script>
+</body>
+</html>

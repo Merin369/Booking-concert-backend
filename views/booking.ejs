@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Concert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Tickets for <%= concert.name %></h1>
+    <p><strong>Date:</strong> <%= new Date(concert.date).toDateString() %></p>
+    <p><strong>Venue:</strong> <%= concert.venue %></p>
+    <p><strong>Available Tickets:</strong> <%= concert.availableTickets %></p>
+
+    <% if (message) { %>
+        <div class="error-message">
+            <p><%= message %></p>
+        </div>
+    <% } %>
+
+    <!-- Booking Form -->
+    <form action="/concerts/payment/<%= concert._id %>" method="GET">
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" name="tickets" id="tickets" 
+               min="1" max="<%= concert.availableTickets %>" required>
+        
+        <!-- Hidden field to pass Concert ID -->
+        <input type="hidden" name="concertId" value="<%= concert._id %>">
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+
+    <!-- Back to Concerts -->
+    <a href="/concerts" class="back-button">Back to Concerts</a>
+</body>
+</html>

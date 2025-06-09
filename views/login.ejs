@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJkXx2GoF3vA6j3vBKh3o5fblCO3zQpcz1byhtl1zvZrSi84T8DJJ4eB4sXx" crossorigin="anonymous">
+
+    <!-- Custom CSS for styling -->
+    <style>
+      /* Global styles */
+body {
+    background-image: url('https://t3.ftcdn.net/jpg/04/99/70/74/240_F_499707490_VIzxuR8sOPBKD0p1Qb6zOe5GQqsWEeZB.jpg');  /* Replace with your image URL */
+    background-size: cover;  /* Ensures the image covers the entire page */
+    background-position: center center;  /* Centers the background image */
+    background-attachment: fixed;  /* Makes the background image fixed while scrolling */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 400px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.4);  /* More transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.h1 {
+    color: #2c3e50;  /* Changed to dark grey */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3498db;  /* Changed to blue color */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);  /* Blue glow on focus */
+}
+
+.btn-custom {
+    background-color: #3498db;  /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #2980b9;  /* Darker blue for hover */
+    transform: translateY(-3px);
+}
+
+.message {
+    text-align: center;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.message p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.form-group {
+    display: list-item;
+    margin-bottom: 10px;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.3);  /* More transparent white background for form */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container form-container">
+        <h1>Login</h1>
+
+        <% if (message && message.length > 0) { %>
+            <div class="message">
+                <p><%= message %></p>
+            </div>
+        <% } %>
+
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn-custom">Login</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-Piv4xVNRyMGpqk2eU7S0M2v1Q5LdeGgH9c0b5AIBqfoG2P4yAOSpMTe9xtwV3t3g7" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0pDty5eFLhRnk8qS17h7xn1JtIbgF6i4L0QkcEftb00mGxhp" crossorigin="anonymous"></script>
+</body>
+</html>

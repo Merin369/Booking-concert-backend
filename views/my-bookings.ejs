@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .booking-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .booking-item p {
+            margin: 5px 0;
+        }
+        .booking-item button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .booking-item button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Bookings</h1>
+    <% if (bookings.length === 0) { %>
+        <p><%= message %></p>
+    <% } else { %>
+        <% bookings.forEach(function(booking) { %>
+            <div class="booking-item">
+                <p><strong>Concert:</strong> <%= booking.concert.name %></p>
+                <p><strong>Date:</strong> <%= booking.concert.date %></p>
+                <p><strong>Venue:</strong> <%= booking.concert.venue %></p>
+                <p><strong>Tickets Booked:</strong> <%= booking.tickets %></p>
+                <button onclick="window.location.href='/bookings/cancel/<%= booking._id %>'">Cancel Booking</button>
+            </div>
+        <% }); %>
+    <% } %>
+
+    <a href="/concerts" class="back-button">Back to Concerts</a>
+</body>
+</html>
